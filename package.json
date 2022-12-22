@@ -1,0 +1,12 @@
+{
+  "scripts": {
+    "start": "groovy migrate.groovy",
+    "test": "psql -h localhost -p 6000 -U postgres -c 'select * from flyway_demo.book'",
+    "drop": "psql -h localhost -p 6000 -U postgres -c 'drop schema if exists flyway_demo cascade'",
+    "======================================================": "",
+    "up": "docker compose -f docker-compose.yml -p flyway-migration up -d",
+    "stop": "docker compose -f docker-compose.yml -p flyway-migration stop",
+    "down": "docker compose -f docker-compose.yml -p flyway-migration down",
+    "log": "docker compose -f docker-compose.yml -p flyway-migration logs --follow"
+  }
+}
